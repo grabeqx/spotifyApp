@@ -6,7 +6,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        main: path.join(__dirname, '/src/main.js'),
+        main: path.join(__dirname, '/src/main.jsx'),
         vendor: path.join(__dirname, '/src/vendor.js')          
     },
     output: {
