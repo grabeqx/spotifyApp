@@ -7,7 +7,7 @@ import actionCreator from './actions/action.creator.js';
 
 const actions = actionCreator();
 
-actions.fetchPlaylist();
+actions.getToken();
 
 
 ReactDOM.render(<App appName="SpotifyApp" actions={actions}/>, document.querySelector('#root'));
