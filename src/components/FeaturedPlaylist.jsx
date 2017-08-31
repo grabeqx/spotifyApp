@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 
 
 class FeaturedPlaylist extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor(props, context) {
+        super(props, context);
+        console.log(this);
     }
 
     render() {

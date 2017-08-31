@@ -8,15 +8,16 @@ import FeaturedPlaylist from './FeaturedPlaylist';
 export class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            appName: this.props.appName,
-            menuLinks: [
-                "Główna",
-                "Najciekawsze",
-                "Ulubione"
-            ]
+        this.state = this.props.store.getState();
+    }
+
+    getChildContext() {
+        return {
+            actions: this.props.actions,
+            state: this.state
         }
     }
+	
     
     render() {
         return (
@@ -28,6 +29,11 @@ export class App extends React.Component {
             </div>
         )
     }
+}
+
+App.childContextTypes = {
+    actions: React.PropTypes.object,
+    state: React.PropTypes.object
 }
 
 export default App;

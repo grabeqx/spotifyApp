@@ -1,4 +1,5 @@
 import axios from 'axios';
+import ACTIONS from '../constants/actions';
 import SPOTIFY from '../constants/spotify';
 
 const actionCreator = function (dispatch) {
@@ -20,6 +21,7 @@ const actionCreator = function (dispatch) {
         },
         
         fetchPlaylist: function() {
+            
             axios.get('https://api.spotify.com/v1/browse/new-releases')
                 .then( response => {
                     console.log(response);
