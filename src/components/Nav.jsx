@@ -1,27 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
-const LeftNav = ({menuLinks}) => {
+const LeftNav = () => {
     return (
         <div className="collapse navbar-collapse">
             <ul className="navbar-nav mr-auto">
-                {menuLinks.map((link,id) => (
-                    <li key={id} className="nav-item">
-                        <a href="#" className="nav-link">{link}</a>
-                    </li>
-                ))}
+                <Link to="/search" className="nav-link">Search</Link>
             </ul>
         </div>
     )
 }
 
-export const Nav = ({appName, menuLinks}) => {
+export const Nav = ({appName}) => {
     return (
         <div className="container-fluid">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a href="#" className="navbar-brand">{appName}</a>
-                <LeftNav menuLinks={menuLinks} />
+                <Link to="/" className="navbar-brand">{appName}</Link>
+                <LeftNav />
             </nav>
         </div>
     )

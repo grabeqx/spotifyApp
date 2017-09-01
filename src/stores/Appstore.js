@@ -2,12 +2,7 @@ import createStore from './createStore';
 import ACTIONS from '../constants/actions';
 
 const AppStore = createStore({
-    appName: 'SpotifyApp',
-    menuLinks: [
-        "Główna",
-        "Najciekawsze",
-        "Ulubione"
-    ]
+    appName: 'SpotifyApp'
 }, function(action) {
 
     switch (action.type) {

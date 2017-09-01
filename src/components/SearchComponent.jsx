@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-class FeaturedPlaylist extends React.Component {
+class SearchComponent extends React.Component {
     constructor(props, context) {
         super(props, context);
     }
 
     render() {
         return (
-            <div>FeaturedPlaylist</div>
+            <div>Search</div>
         )
     }
 }
 
-export default FeaturedPlaylist;
+export default SearchComponent;
