@@ -1,20 +1,13 @@
-import createStore from './createStore';
-import ACTIONS from '../constants/actions';
+import { createStore } from 'redux';
+import { applyMiddleware } from 'redux';
+import { routerMiddleware } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
+import rootReducer from '../reducers/rootReducer';
 
-const AppStore = createStore({
-    appName: 'SpotifyApp'
-}, function(action) {
+export const history = createHistory();
+const middleware = routerMiddleware(history);
 
-    switch (action.type) {
+const store = createStore(rootReducer, applyMiddleware(middleware));
 
-        case ACTIONS.LOAD_PLAYLIST:
 
-            console.log("test");
-            
-        break;
-        
-    }
-
-});
-
-export default AppStore;
+export default store;

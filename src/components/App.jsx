@@ -1,21 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Router,Route} from 'react-router';
+import { Router, Route, Switch } from 'react-router';
 
 import {Nav} from './Nav';
+import SearchComponent from './SearchComponent';
+import FeaturedPlaylist from './FeaturedPlaylist';
+
 
 export class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.store.getState();
     }
 	
     render() {
         return (
             <div>
-                <Nav appName={this.state.appName} menuLinks={this.state.menuLinks}/>
+                <Nav appName="Spotify" />
                 <div className="container">
-                    {this.props.children}
+                    <Switch>
+                        <Route exact path="/" render={props => (<FeaturedPlaylist {...this.props} />)} />
+                        <Route path="/search" render={props => (<SearchComponent {...this.props} />)} />
+                    </Switch>
                 </div>
             </div>
         )

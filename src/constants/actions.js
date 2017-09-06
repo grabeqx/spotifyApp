@@ -1,5 +1,5 @@
 const ACTIONS = {
-    LOAD_PLAYLIST: Symbol('LOAD_PLAYLIST')
+    GET_TOKEN: Symbol('GET_TOKEN')
 };
 
 export default ACTIONS;
