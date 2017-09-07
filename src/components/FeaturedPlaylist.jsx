@@ -7,13 +7,6 @@ class FeaturedPlaylist extends React.Component {
         super(props);
     }
 
-    componentWillMount() {
-        this.props.getToken();
-    }
-    componentDidMount() {
-        console.log(this.props);
-    }
-
     render() {
         return (
             <div>FeaturedPlaylist</div>

@@ -9,13 +9,21 @@ import FeaturedPlaylist from './FeaturedPlaylist';
 export class App extends React.Component {
     constructor(props) {
         super(props);
+        this.state = this.props.appConfig;
     }
-	
+
+    componentWillReceiveProps(nextProps) {
+        this.setState(nextProps.appConfig);
+    }
+    componentWillMount() {
+        this.props.getToken();
+    }
+
     render() {
         return (
             <div>
-                <Nav appName="Spotify" />
-                <div className="container">
+                <Nav data={this.state}/>
+                <div className="container my-4">
                     <Switch>
                         <Route exact path="/" render={props => (<FeaturedPlaylist {...this.props} />)} />
                         <Route path="/search" render={props => (<SearchComponent {...this.props} />)} />

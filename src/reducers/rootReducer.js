@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import appConfig from './appConfig';
+import appConfigReducer from './appConfigReducer';
+import playlistReducer from './playlistReducer';
+
+var reducers = {appConfigReducer, playlistReducer}
 
 const rootReducer = combineReducers({
-    appConfig,
+    appConfigReducer,
+    playlistReducer,
     router: routerReducer
 });
 

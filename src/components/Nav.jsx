@@ -12,14 +12,46 @@ const LeftNav = () => {
     )
 }
 
-export const Nav = ({appName}) => {
+const RightNav = (props) => {
     return (
-        <div className="container-fluid">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link to="/" className="navbar-brand">{appName}</Link>
-                <LeftNav />
-            </nav>
+        <div>
+            <div className="my-2 my-lg-0 d-flex">
+                <div className="mr-sm-2">
+                    <img className="avatar" src={props.user.image} />
+                </div>    
+                <div className="my-2 my-sm-0">
+                    <h5>{props.user.display_name}</h5>
+                </div>
+            </div>
+        
         </div>
     )
+}
 
+export class Nav extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            appName: this.props.data.appName,
+            user: {}
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            user: nextProps.data.user
+        });
+    }
+
+    render() {
+        return (
+            <div className="container-fluid">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <Link to="/" className="navbar-brand">{this.state.appName}</Link>
+                    <LeftNav />
+                    <RightNav user={this.state.user} />
+                </nav>
+            </div>
+        )
+    }
 }

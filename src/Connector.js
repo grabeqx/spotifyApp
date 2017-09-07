@@ -6,7 +6,8 @@ import App from './components/App.jsx';
 
 function mapStateToProps (state) {
     return {
-        appConfig: state.appConfig
+        appConfig: state.appConfigReducer,
+        playlists: state.playlistReducer
     }
 }
 
