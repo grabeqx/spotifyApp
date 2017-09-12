@@ -1,23 +1,14 @@
 import ACTIONS from '../constants/actions';
-import SPOTIFY from '../constants/spotify';
 
-function playlistReducer (state = {}, action) {
-    var payload = action.payload;
+export function playlistReducer(state = [], action) {
 
     switch(action.type) {
-        case ACTIONS.GET_TOKEN_SUCCESS:
-        console.log("playliost");
-            return state
-
-        case ACTIONS.GET_USER:
-            console.log("playlist");
-            return state
+        case ACTIONS.FEATURED_PLAYLISTS_LOADED: 
+                
+            return {...state, ...action.payload.albums.items}
 
         default:
             return state;
     }
 
-    return state;
 }
-
-export default playlistReducer;

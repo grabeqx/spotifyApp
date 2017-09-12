@@ -21,6 +21,13 @@ const SpotifyApi = {
     getUser: function () {
         return axios.get('https://api.spotify.com/v1/me')
             .then(response => response.data);
+    },
+
+    getPlaylists: function() {
+        return axios.get('https://api.spotify.com/v1/browse/new-releases')
+            .then( response => {
+                return response.data
+            })
     }
 
 }

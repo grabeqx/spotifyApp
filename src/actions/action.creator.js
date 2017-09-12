@@ -8,6 +8,11 @@ const actionCreators = {
             type: ACTIONS.GET_TOKEN,
             payload: SPOTIFY
         }
+    },
+    getPlaylists: function() {
+        return {
+            type: ACTIONS.GET_FEATURED_PLAYLISTS
+        }
     }
     
 };

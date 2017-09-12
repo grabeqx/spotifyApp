@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import appConfigReducer from './appConfigReducer';
-import playlistReducer from './playlistReducer';
+import spotifyDataReducer from './spotifyDataReducer';
 
-var reducers = {appConfigReducer, playlistReducer}
+var reducers = {appConfigReducer, spotifyDataReducer}
 
 const rootReducer = combineReducers({
     appConfigReducer,
-    playlistReducer,
+    spotifyDataReducer,
     router: routerReducer
 });
 

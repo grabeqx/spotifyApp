@@ -10,13 +10,11 @@ export class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.appConfig;
+        this.props.getToken();
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState(nextProps.appConfig);
-    }
-    componentWillMount() {
-        this.props.getToken();
     }
 
     render() {
