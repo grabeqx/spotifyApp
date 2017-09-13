@@ -13,6 +13,12 @@ const actionCreators = {
         return {
             type: ACTIONS.GET_FEATURED_PLAYLISTS
         }
+    },
+    getAlbum: function(album) {
+        return {
+            type: ACTIONS.GET_ALBUM,
+            payload: album
+        }
     }
     
 };

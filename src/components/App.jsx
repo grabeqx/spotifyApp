@@ -4,7 +4,7 @@ import { Router, Route, Switch } from 'react-router';
 import {Nav} from './Nav';
 import SearchComponent from './SearchComponent';
 import NewRelases from './NewRelases';
-
+import AlbumDetails from './AlbumDetails';
 
 export class App extends React.Component {
     constructor(props) {
@@ -34,6 +34,7 @@ export class App extends React.Component {
                     <Switch>
                         <Route exact path="/" render={props => (<NewRelases {...this.props} />)} />
                         <Route path="/search" render={props => (<SearchComponent {...this.props} />)} />
+                        <Route path="/album/:id" component={AlbumDetails} />
                     </Switch>
                 </div>
             </div>

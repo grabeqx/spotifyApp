@@ -8,6 +8,9 @@ class AlbumDetails extends React.Component {
         super(props);
     }
 
+    componentWillMount() {
+        console.log(this.props);
+    }
 
 
     render() {

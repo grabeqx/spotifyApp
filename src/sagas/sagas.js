@@ -15,9 +15,15 @@ function* getNewReleases(action) {
     yield put({type: ACTIONS.FEATURED_PLAYLISTS_LOADED, payload: albums});
 }
 
+function* getAlbum(action) {
+    const album = yield call(SpotifyApi.getAlbum, action.payload);
+    yield put({type: ACTIONS.GET_ALBUM_SUCCESS, payload: album});
+}
+
 function* SpotifySaga() {
     yield takeLatest(ACTIONS.GET_TOKEN, getToken);
     yield takeLatest(ACTIONS.GET_FEATURED_PLAYLISTS, getNewReleases);
+    yield takeLatest(ACTIONS.GET_ALBUM, getAlbum);
 }
 
 

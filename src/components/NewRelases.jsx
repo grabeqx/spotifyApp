@@ -6,8 +6,10 @@ import { Album } from './Cards';
 class NewRelases extends React.Component {
     constructor(props) {
         super(props);
-        this.props.getNewReleases();
         this.state = this.props.spotify;
+    }
+    componentWillMount() {
+        this.props.getNewReleases();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -23,8 +25,8 @@ class NewRelases extends React.Component {
                     <h1 className="text-center">New Relases:</h1>
                 </div>            
                 <div className="row">
-                    {this.state.newReleases.map((album) => (
-                        <Album key={album.id} album={album}/>
+                    {this.state.newReleases.map((album,index) => (
+                        <Album key={index} album={album}/>
                     ))}
                 </div>
             </div>
