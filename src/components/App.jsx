@@ -3,7 +3,7 @@ import { Router, Route, Switch } from 'react-router';
 
 import {Nav} from './Nav';
 import SearchComponent from './SearchComponent';
-import FeaturedPlaylist from './FeaturedPlaylist';
+import NewRelases from './NewRelases';
 
 
 export class App extends React.Component {
@@ -14,16 +14,25 @@ export class App extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState(nextProps.appConfig);
+        if(nextProps.appConfig != this.state)
+            this.setState(nextProps.appConfig);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if(this.props != nextProps) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     render() {
         return (
             <div>
                 <Nav data={this.state}/>
                 <div className="container my-4">
                     <Switch>
-                        <Route exact path="/" render={props => (<FeaturedPlaylist {...this.props} />)} />
+                        <Route exact path="/" render={props => (<NewRelases {...this.props} />)} />
                         <Route path="/search" render={props => (<SearchComponent {...this.props} />)} />
                     </Switch>
                 </div>

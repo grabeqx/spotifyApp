@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const LeftNav = () => {
     return (
@@ -19,7 +19,7 @@ const RightNav = (props) => {
                 <div className="mr-sm-2">
                     <img className="avatar" src={props.user.image} />
                 </div>    
-                <div className="my-2 my-sm-0">
+                <div className="my-2 my-sm-0 user-name">
                     <h5>{props.user.display_name}</h5>
                 </div>
             </div>
@@ -46,7 +46,7 @@ export class Nav extends React.Component {
     render() {
         return (
             <div className="container-fluid">
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <Link to="/" className="navbar-brand">{this.state.appName}</Link>
                     <LeftNav />
                     <RightNav user={this.state.user} />

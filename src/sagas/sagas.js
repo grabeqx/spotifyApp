@@ -10,14 +10,14 @@ function* getToken(action) {
     yield put({type: ACTIONS.GET_USER, payload: user});
 }
 
-function* getPlaylists(action) {
-    const playlist = yield call(SpotifyApi.getPlaylists);
-    yield put({type: ACTIONS.FEATURED_PLAYLISTS_LOADED, payload: playlist});
+function* getNewReleases(action) {
+    const albums = yield call(SpotifyApi.getNewReleases);
+    yield put({type: ACTIONS.FEATURED_PLAYLISTS_LOADED, payload: albums});
 }
 
 function* SpotifySaga() {
     yield takeLatest(ACTIONS.GET_TOKEN, getToken);
-    yield takeLatest(ACTIONS.GET_FEATURED_PLAYLISTS, getPlaylists);
+    yield takeLatest(ACTIONS.GET_FEATURED_PLAYLISTS, getNewReleases);
 }
 
 

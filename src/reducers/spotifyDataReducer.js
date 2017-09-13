@@ -1,15 +1,15 @@
 import ACTIONS from '../constants/actions';
 import SPOTIFY from '../constants/spotify';
 
-import { playlistReducer } from './playlistReducer';
+import { newReleasesReducer } from './newReleasesReducer';
 
 function spotifyDataReducer (state = {
-    playlists: []
+    newReleases: []
 }, action) {
 
     return {
         ...state,
-        playlists: playlistReducer(state.playlists, action)
+        newReleases: newReleasesReducer(state.newReleases, action)
     }
 }
 

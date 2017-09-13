@@ -9,7 +9,7 @@ const actionCreators = {
             payload: SPOTIFY
         }
     },
-    getPlaylists: function() {
+    getNewReleases: function() {
         return {
             type: ACTIONS.GET_FEATURED_PLAYLISTS
         }

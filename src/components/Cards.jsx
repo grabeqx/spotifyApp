@@ -1,10 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export const Playlist = (props) => {
-    console.log(props);
+export const Album = ({album}) => {
     return (
-        <div>
-
+        <div className="col-sm-4">
+            <Link to="">
+                <div className="card text-white bg-dark mb-3">
+                    <img className="card-img-top" src={album.images[0].url} alt="Card image cap" />
+                    <div className="card-header">{album.artists[0].name}</div>
+                    <div className="card-body">
+                        <h4 className="card-title">{album.name}</h4>
+                    </div>
+                </div>
+            </Link>
         </div>
     )
 
