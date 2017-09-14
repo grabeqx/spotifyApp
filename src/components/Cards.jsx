@@ -3,17 +3,14 @@ import { Link } from 'react-router-dom';
 
 export const Album = ({album}) => {
     return (
-        <div className="col-sm-4">
+        <div className="col-sm-3 album-card">
             <Link to={{
                 pathname: `/album/${album.id}`,
                 state: album
             }}>
-                <div className="card text-white bg-dark mb-3">
+                <div className="card text-white mb-3">
                     <img className="card-img-top" src={album.images[0].url} alt="Card image cap" />
-                    <div className="card-header">{album.artists[0].name}</div>
-                    <div className="card-body">
-                        <h4 className="card-title">{album.name}</h4>
-                    </div>
+                    <div className="card-header">{album.name}</div>
                 </div>
             </Link>
         </div>

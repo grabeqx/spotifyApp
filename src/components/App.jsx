@@ -10,6 +10,8 @@ export class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.appConfig;
+    }
+    componentWillMount() {
         this.props.actions.getToken();
     }
 
@@ -30,12 +32,20 @@ export class App extends React.Component {
         return (
             <div>
                 <Nav data={this.state}/>
-                <div className="container my-4">
-                    <Switch>
-                        <Route exact path="/" render={props => (<NewRelases {...this.props} />)} />
-                        <Route path="/search" render={props => (<SearchComponent {...this.props} />)} />
-                        <Route path="/album/:id" render={props => (<AlbumDetails {...this.props} {...props} />)} />
-                    </Switch>
+                <div className="container-fluid">
+                    <div className="row flex-xl-nowrap main-content">
+                        <div className="col-md-2 sidebar text-white">
+                            lorem
+                        </div>
+                        <div className="col-md-10 text-white scroll-y">
+                            <div className="bg-image"><img src={this.props.app.design.topBg}/></div>
+                            <Switch>
+                                <Route exact path="/" render={props => (<NewRelases {...this.props} />)} />
+                                <Route path="/search" render={props => (<SearchComponent {...this.props} />)} />
+                                <Route path="/album/:id" render={props => (<AlbumDetails {...this.props} {...props} />)} />
+                            </Switch>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

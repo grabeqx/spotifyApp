@@ -45,13 +45,13 @@ export class Nav extends React.Component {
 
     render() {
         return (
-            <div className="container-fluid">
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="container-fluid px-0">
+                <nav className="navbar navbar-expand-lg navbar-dark">
                     <Link to="/" className="navbar-brand">{this.state.appName}</Link>
                     <LeftNav />
                     <RightNav user={this.state.user} />
                 </nav>
-            </div>
+            </nav>
         )
     }
 }

@@ -1,8 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,600&subset=latin-ext');
+
+$background: #181f29;
+$color1: #232a34;
+$color2: #2c3039;
+
+$fontFamily: Poppins;
+
+body {
+    font-family: $fontFamily;
+    background: $background;
+    overflow: hidden;
+}
+.scroll-y {
+    overflow-y: scroll;
+    height: calc(100vh - 68px);
+    perspective: 2px;
+    overflow-x: hidden;
+}
 .avatar {
     width: 3rem;
 }
 .user-name {
     h5 {
         color: #fff;
+    }
+}
+.content {
+    max-width: 1200px;
+    padding-top: 18vh;
+}
+.sidebar {
+    min-height: 100vh;
+    background: $color1;
+}
+.navbar  {
+    background: $color2;
+}
+.album-card {
+    .card {
+        background: $color1;
+        position: relative;
+        overflow: hidden;
+        .card-header {
+            position: absolute;
+            bottom: -1px;
+            left: 0px;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            height: 30%;
+            display: flex;
+            align-items: flex-end;
+            background: rgba(35,42,52,0);
+            background: -moz-linear-gradient(top, rgba(35,42,52,0) 0%, rgba(35,42,52,1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(35,42,52,0)), color-stop(100%, rgba(35,42,52,1)));
+            background: -webkit-linear-gradient(top, rgba(35,42,52,0) 0%, rgba(35,42,52,1) 100%);
+            background: -o-linear-gradient(top, rgba(35,42,52,0) 0%, rgba(35,42,52,1) 100%);
+            background: -ms-linear-gradient(top, rgba(35,42,52,0) 0%, rgba(35,42,52,1) 100%);
+            background: linear-gradient(to bottom, rgba(35,42,52,0) 0%, rgba(35,42,52,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232a34', endColorstr='#232a34', GradientType=0 );
+            transition: all .2s cubic-bezier(.34,.93,.4,.91);
+        }
+        &:hover {
+            .card-header {
+                height: 50%;
+            }
+        }
+    }
+}
+.main-content {
+    position: relative;
+}
+.bg-image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+    height: 48vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateZ(-2px) scale(2) translateY(-110px);
+    img {
+        width: 100%;
+    }
+    &:after {
+        content: "";
+        background: rgba(24,31,41,0);
+        background: -moz-linear-gradient(top, rgba(24,31,41,0) 0%, rgba(24,31,41,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(24,31,41,0)), color-stop(100%, rgba(24,31,41,1)));
+        background: -webkit-linear-gradient(top, rgba(24,31,41,0) 0%, rgba(24,31,41,1) 100%);
+        background: -o-linear-gradient(top, rgba(24,31,41,0) 0%, rgba(24,31,41,1) 100%);
+        background: -ms-linear-gradient(top, rgba(24,31,41,0) 0%, rgba(24,31,41,1) 100%);
+        background: linear-gradient(to bottom, rgba(24,31,41,0) 0%, rgba(24,31,41,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181f29', endColorstr='#181f29', GradientType=0 );
+        display: block;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        height: 120%;
     }
 }

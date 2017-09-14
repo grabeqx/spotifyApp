@@ -19,6 +19,18 @@ const actionCreators = {
             type: ACTIONS.SET_ALBUM,
             payload: album
         }
+    },
+    getAlbumTracks: function(album) {
+        return {
+            type: ACTIONS.GET_ALBUM_TRACKS,
+            payload: album
+        }
+    },
+    updateBg: function(newBg) {
+        return {
+            type: ACTIONS.UPDATE_BG,
+            payload: newBg
+        }
     }
     
 };

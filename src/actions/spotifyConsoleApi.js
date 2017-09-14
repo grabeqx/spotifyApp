@@ -26,6 +26,11 @@ const SpotifyApi = {
     getNewReleases: function() {
         return axios.get('https://api.spotify.com/v1/browse/new-releases')
             .then( response => response.data)
+    },
+
+    getAlbumTracks: function(album) {
+        return axios.get(`https://api.spotify.com/v1/albums/${album}/tracks`)
+            .then(response => response.data.items)
     }
 
 }

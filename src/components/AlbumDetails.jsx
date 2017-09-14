@@ -12,7 +12,8 @@ class AlbumDetails extends React.Component {
     }
 
     componentWillMount() {
-        this.props.actions.setAlbum({album: this.props.location.state});
+        this.props.actions.setAlbum(this.props.location.state);
+        this.props.actions.getAlbumTracks(this.props.location.state.id);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -25,9 +26,10 @@ class AlbumDetails extends React.Component {
     }
 
     render() {
+        console.log(this.state);
         return (
-            <div>
-                {this.state.album.name}
+            <div className="container content">
+                <h1>{this.state.album.name}</h1>
             </div>
         )
     }

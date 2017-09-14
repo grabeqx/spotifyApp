@@ -10,6 +10,7 @@ class NewRelases extends React.Component {
     }
     componentWillMount() {
         this.props.actions.getNewReleases();
+        this.props.actions.updateBg('https://wallpaperscraft.com/image/triangle_colored_background_dots_color_29875_2048x1152.jpg');
     }
 
     componentWillReceiveProps(nextProps) {
@@ -20,9 +21,9 @@ class NewRelases extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="row mb-5 col-md-12 justify-content-center">
-                    <h1 className="text-center">New Relases:</h1>
+            <div className="container content">
+                <div className="row mb-5 col-md-12">
+                    <h1>New Relases:</h1>
                 </div>            
                 <div className="row">
                     {this.state.newReleases.map((album,index) => (
