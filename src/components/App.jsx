@@ -10,7 +10,7 @@ export class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.appConfig;
-        this.props.getToken();
+        this.props.actions.getToken();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -34,7 +34,7 @@ export class App extends React.Component {
                     <Switch>
                         <Route exact path="/" render={props => (<NewRelases {...this.props} />)} />
                         <Route path="/search" render={props => (<SearchComponent {...this.props} />)} />
-                        <Route path="/album/:id" component={AlbumDetails} />
+                        <Route path="/album/:id" render={props => (<AlbumDetails {...this.props} {...props} />)} />
                     </Switch>
                 </div>
             </div>

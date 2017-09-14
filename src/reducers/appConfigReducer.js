@@ -1,7 +1,7 @@
 import ACTIONS from '../constants/actions';
 import SPOTIFY from '../constants/spotify';
 
-function appConfigReducer (state = {
+function AppConfigReducer (state = {
     clientId: SPOTIFY.CLINET_ID,
     appName: "SpotifyApp",
     user: {},
@@ -28,4 +28,4 @@ function appConfigReducer (state = {
     return state;
 }
 
-export default appConfigReducer;
+export default AppConfigReducer;

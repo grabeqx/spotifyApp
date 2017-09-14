@@ -14,9 +14,9 @@ const actionCreators = {
             type: ACTIONS.GET_FEATURED_PLAYLISTS
         }
     },
-    getAlbum: function(album) {
+    setAlbum: function(album) {
         return {
-            type: ACTIONS.GET_ALBUM,
+            type: ACTIONS.SET_ALBUM,
             payload: album
         }
     }

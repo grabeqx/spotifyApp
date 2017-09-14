@@ -6,13 +6,16 @@ import App from './components/App.jsx';
 
 function mapStateToProps (state) {
     return {
-        appConfig: state.appConfigReducer,
-        spotify: state.spotifyDataReducer
+        appConfig: state.AppConfigReducer,
+        spotify: state.SpotifyDataReducer,
+        app: state.AppReducer
     }
 }
 
 function mapDispatchToProps (dispatch) {
-    return bindActionCreators(actionCreators, dispatch);
+    return {
+        actions: bindActionCreators(actionCreators, dispatch)
+    }
 }
 
 const Connector = connect(mapStateToProps, mapDispatchToProps)(App);

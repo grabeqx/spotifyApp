@@ -9,7 +9,7 @@ class NewRelases extends React.Component {
         this.state = this.props.spotify;
     }
     componentWillMount() {
-        this.props.getNewReleases();
+        this.props.actions.getNewReleases();
     }
 
     componentWillReceiveProps(nextProps) {

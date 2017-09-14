@@ -1,9 +1,19 @@
 import ACTIONS from '../constants/actions';
-import SPOTIFY from '../constants/spotify';
 
-import { newReleasesReducer } from './newReleasesReducer';
+function newReleasesReducer(state = [], action) {
+    
+    switch(action.type) {
+        
+        case ACTIONS.FEATURED_PLAYLISTS_LOADED: 
+            return [...state, ...action.payload.albums.items]
 
-function spotifyDataReducer (state = {
+        default:
+            return state;
+    }
+
+}
+
+function SpotifyDataReducer (state = {
     newReleases: []
 }, action) {
 
@@ -13,4 +23,4 @@ function spotifyDataReducer (state = {
     }
 }
 
-export default spotifyDataReducer;
+export default SpotifyDataReducer;
