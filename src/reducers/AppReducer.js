@@ -35,7 +35,6 @@ function designReducer(state={}, action) {
             return state;
 
         case ACTIONS.UPDATE_BG:
-        console.log(action.payload);
             state = {
                 ...state,
                 topBg: action.payload

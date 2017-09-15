@@ -37,7 +37,7 @@ export class App extends React.Component {
                         <div className="col-md-2 sidebar text-white">
                             lorem
                         </div>
-                        <div className="col-md-10 text-white scroll-y">
+                        <div className="col-md-10 text-white scroll-y main">
                             <div className="bg-image"><img src={this.props.app.design.topBg}/></div>
                             <Switch>
                                 <Route exact path="/" render={props => (<NewRelases {...this.props} />)} />

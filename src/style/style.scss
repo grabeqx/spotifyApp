@@ -4,7 +4,18 @@ $background: #181f29;
 $color1: #232a34;
 $color2: #2c3039;
 
+$borderColor: #49586d;
 $fontFamily: Poppins;
+
+@mixin gradientBottom($color1, $color2, $color3) {
+    background: rgba($color1,$color2,$color3,0);
+    background: -moz-linear-gradient(top, rgba($color1,$color2,$color3,0) 0%, rgba($color1,$color2,$color3,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba($color1,$color2,$color3,0)), color-stop(100%, rgba($color1,$color2,$color3,1)));
+    background: -webkit-linear-gradient(top, rgba($color1,$color2,$color3,0) 0%, rgba($color1,$color2,$color3,1) 100%);
+    background: -o-linear-gradient(top, rgba($color1,$color2,$color3,0) 0%, rgba($color1,$color2,$color3,1) 100%);
+    background: -ms-linear-gradient(top, rgba($color1,$color2,$color3,0) 0%, rgba($color1,$color2,$color3,1) 100%);
+    background: linear-gradient(to bottom, rgba($color1,$color2,$color3,0) 0%, rgba($color1,$color2,$color3,1) 100%);
+}
 
 body {
     font-family: $fontFamily;
@@ -16,6 +27,9 @@ body {
     height: calc(100vh - 68px);
     perspective: 2px;
     overflow-x: hidden;
+}
+.main {
+    padding-bottom: 100px;
 }
 .avatar {
     width: 3rem;
@@ -52,15 +66,8 @@ body {
             height: 30%;
             display: flex;
             align-items: flex-end;
-            background: rgba(35,42,52,0);
-            background: -moz-linear-gradient(top, rgba(35,42,52,0) 0%, rgba(35,42,52,1) 100%);
-            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(35,42,52,0)), color-stop(100%, rgba(35,42,52,1)));
-            background: -webkit-linear-gradient(top, rgba(35,42,52,0) 0%, rgba(35,42,52,1) 100%);
-            background: -o-linear-gradient(top, rgba(35,42,52,0) 0%, rgba(35,42,52,1) 100%);
-            background: -ms-linear-gradient(top, rgba(35,42,52,0) 0%, rgba(35,42,52,1) 100%);
-            background: linear-gradient(to bottom, rgba(35,42,52,0) 0%, rgba(35,42,52,1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232a34', endColorstr='#232a34', GradientType=0 );
             transition: all .2s cubic-bezier(.34,.93,.4,.91);
+            @include gradientBottom(35, 42, 52);
         }
         &:hover {
             .card-header {
@@ -89,19 +96,19 @@ body {
     }
     &:after {
         content: "";
-        background: rgba(24,31,41,0);
-        background: -moz-linear-gradient(top, rgba(24,31,41,0) 0%, rgba(24,31,41,1) 100%);
-        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(24,31,41,0)), color-stop(100%, rgba(24,31,41,1)));
-        background: -webkit-linear-gradient(top, rgba(24,31,41,0) 0%, rgba(24,31,41,1) 100%);
-        background: -o-linear-gradient(top, rgba(24,31,41,0) 0%, rgba(24,31,41,1) 100%);
-        background: -ms-linear-gradient(top, rgba(24,31,41,0) 0%, rgba(24,31,41,1) 100%);
-        background: linear-gradient(to bottom, rgba(24,31,41,0) 0%, rgba(24,31,41,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181f29', endColorstr='#181f29', GradientType=0 );
+        @include gradientBottom(24, 31, 41);
         display: block;
         width: 100%;
         position: absolute;
         bottom: 0px;
         left: 0px;
         height: 120%;
+    }
+}
+.playlist-container {
+    .playlist-item {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid $borderColor;
     }
 }

@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Album } from './Cards';
 
+import { AlbumInfo } from './shared';
+import Playlist from './Playlist';
+
 class AlbumDetails extends React.Component {
     constructor(props) {
         super(props);
@@ -26,10 +29,14 @@ class AlbumDetails extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         return (
-            <div className="container content">
-                <h1>{this.state.album.name}</h1>
+            <div>
+                <div className="container content">
+                    <AlbumInfo album={this.state.album} tracksLength={this.state.tracks.length}/>
+                </div>
+                <div>
+                    <Playlist tracks={this.state.tracks}/>
+                </div>
             </div>
         )
     }
