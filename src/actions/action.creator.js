@@ -3,7 +3,7 @@ import ACTIONS from '../constants/actions';
 import SPOTIFY from '../constants/spotify';
 
 const actionCreators = {
-    getToken: function() {
+    initApp: function() {
         return {
             type: ACTIONS.GET_TOKEN,
             payload: SPOTIFY
@@ -30,6 +30,22 @@ const actionCreators = {
         return {
             type: ACTIONS.UPDATE_BG,
             payload: newBg
+        }
+    },
+    getPlaylistTracks: function(href) {
+        return {
+            type: ACTIONS.GET_PLAYLIST_TRACKS,
+            payload: href
+        }
+    },
+    setPlayedPlaylist: function(playlist) {
+        return {
+            type: ACTIONS.SET_PLAYED_PLAYLIST,
+            payload: {
+                playlist: playlist.playlist,
+                playedTrack: playlist.playedTrack,
+                playedIndex: playlist.playedIndex
+            }
         }
     }
     

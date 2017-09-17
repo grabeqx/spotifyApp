@@ -17,6 +17,11 @@ function currenAlbumReducer(state = {}, action) {
                 tracks: action.payload
             }
             return state;
+        case ACTIONS.GET_PLAYLIST_TRACKS_SUCCESS:
+            return {
+                ...state,
+                tracks: action.payload
+            }
         default:
             return state;
     
@@ -48,6 +53,39 @@ function designReducer(state={}, action) {
 
 }
 
+function userPLaylistsReducer(state=[], action) {
+
+    switch(action.type) {
+        case ACTIONS.GET_USER_PLAYLISTS:
+            return [
+                ...state,
+                ...action.payload.items
+            ];
+        default:
+            return state;
+
+    }
+
+}
+
+function playerReducer(state={}, action) {
+    
+    switch(action.type) {
+        case ACTIONS.SET_PLAYED_PLAYLIST:
+            return {
+                ...state,
+                played: true,
+                playedTrack: action.payload.playedTrack,
+                playedIndex: action.payload.playedIndex,
+                playlist: [...action.payload.playlist]
+            }
+
+        default:
+            return state;
+
+    }
+
+}
 
 function AppReducer(state = {
     currentAlbum: {
@@ -57,13 +95,21 @@ function AppReducer(state = {
     design: {
         topBg: {}
     },
-    currentTrack: {}
+    userPLaylists: [],
+    player: {
+        played: false,
+        playedTrack: {},
+        playedIndex: 0,
+        playlist: []
+    }
 }, action) {
 
     return {
         ...state,
         currentAlbum: currenAlbumReducer(state.currentAlbum, action),
-        design: designReducer(state.design, action)
+        design: designReducer(state.design, action),
+        userPLaylists: userPLaylistsReducer(state.userPLaylists, action),
+        player: playerReducer(state.player, action)
     }
       
 }

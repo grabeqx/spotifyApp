@@ -14,9 +14,11 @@ class NewRelases extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({
-            newReleases: nextProps.spotify.newReleases
-        });
+        if(this.state.newReleases.length != nextProps.spotify.newReleases.length) {
+            this.setState({
+                newReleases: nextProps.spotify.newReleases
+            });
+        }
     }
 
     render() {

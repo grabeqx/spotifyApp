@@ -11,8 +11,8 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, '/dist'),
+        publicPath: 'http://localhost/',
         filename: '[name].js',
-        publicPath: '/'
     },
     plugins: [
         new ExtractTextWebpackPlugin("style.css"),
@@ -53,8 +53,13 @@ module.exports = {
             {
 				test: /\.scss$/,
 				use: ExtractTextWebpackPlugin.extract(['css-loader', 'sass-loader'])
+            },
+            { test:  /\.(jpg|png|svg)$/, use: [ "file-loader" ] },
+            { 
+                test:  /\.(jpg|png|svg)$/, 
+                include : path.join(__dirname, 'assets'),
+                use: [ "url-loader?limit=30000&name=images/[name].[ext]" ] 
             }
-            
         ]
     },
     devServer: {

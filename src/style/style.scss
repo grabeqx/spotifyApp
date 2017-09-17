@@ -3,8 +3,9 @@
 $background: #181f29;
 $color1: #232a34;
 $color2: #2c3039;
+$playerBg: #171c23;
 
-$borderColor: #49586d;
+$borderColor: #30363e;
 $fontFamily: Poppins;
 
 @mixin gradientBottom($color1, $color2, $color3) {
@@ -29,7 +30,7 @@ body {
     overflow-x: hidden;
 }
 .main {
-    padding-bottom: 100px;
+    padding-bottom: 200px;
 }
 .avatar {
     width: 3rem;
@@ -46,6 +47,20 @@ body {
 .sidebar {
     min-height: 100vh;
     background: $color1;
+    h3 {
+        font-weight: 200;
+        font-size: 1.3rem;
+    }
+    .list-group-item {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid $borderColor;
+        font-weight: 300;
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
 }
 .navbar  {
     background: $color2;
@@ -105,10 +120,62 @@ body {
         height: 120%;
     }
 }
+.album-desc {
+    h1 {
+        font-weight: 300;
+        font-size: 3rem;
+    }
+    h3 {
+        font-weight: 300;
+    }
+    h4 {
+        font-weight: 200;
+        font-size: 1.2rem;
+    }
+}
 .playlist-container {
     .playlist-item {
         background: transparent;
         border: none;
         border-bottom: 1px solid $borderColor;
+        .play-icon img {
+            max-width: 33px;
+            opacity: 0;
+            transform: scale(.9);
+            transition: all .1s ease-in-out;
+        }
+        &:hover {
+            .play-icon img {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        h4 {
+            font-weight: 200;
+        }
+        .duration {
+            font-weight: 200;
+            font-size: 14px;
+        }
+    }
+}
+.player {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background: $playerBg;
+    .controls {
+        a {
+            img {
+                width: 60px;
+            }
+            &.step img {
+                width: 40px;
+            }
+        }
+    }
+    h3 {
+        font-weight: 200;
     }
 }

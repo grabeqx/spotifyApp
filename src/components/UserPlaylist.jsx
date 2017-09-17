@@ -4,34 +4,33 @@ import ReactDOM from 'react-dom';
 import { AlbumInfo } from './shared';
 import Playlist from './Playlist';
 
-class AlbumDetails extends React.Component {
+class UserPlaylist extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            album: this.props.location.state,
+            playlist: this.props.location.state,
             tracks: []
         }
     }
 
     componentWillMount() {
-        this.props.actions.setAlbum(this.state.album);
-        this.props.actions.getAlbumTracks(this.state.album.id);
+        this.props.actions.setAlbum(this.state.playlist);
+        this.props.actions.getPlaylistTracks(this.state.playlist.tracks.href);
     }
 
     componentWillReceiveProps(nextProps) {
-        if(this.state != nextProps.app.currentAlbum) {
-            this.setState({
-                album : nextProps.app.currentAlbum.album,
-                tracks: nextProps.app.currentAlbum.tracks
-            })
-        }
+        this.setState({
+            playlist: nextProps.app.currentAlbum.album,
+            tracks: nextProps.app.currentAlbum.tracks
+        })
+        
     }
 
     render() {
         return (
             <div>
                 <div className="container content">
-                    <AlbumInfo album={this.state.album} tracksLength={this.state.tracks.length}/>
+                    <AlbumInfo album={this.state.playlist} tracksLength={this.state.tracks.length}/>
                 </div>
                 <div>
                     <Playlist tracks={this.state.tracks} {...this.props}/>
@@ -41,4 +40,4 @@ class AlbumDetails extends React.Component {
     }
 }
 
-export default AlbumDetails;
+export default UserPlaylist;

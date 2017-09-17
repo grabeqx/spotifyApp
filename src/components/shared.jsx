@@ -5,7 +5,7 @@ export const AlbumInfo = ({album, tracksLength}) => {
     return (
         <div className="row flex">
             <div className="mr-3">
-                <img src={images.length > 0 ? images[1].url : null} />
+                <img src={images.length > 1 ? images[1].url : images[0].url} />
             </div>
             <div className="album-desc">
                 <h1>{album.name}</h1>

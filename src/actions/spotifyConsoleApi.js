@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const SpotifyApi = {
     
-    getToken: function(data) {
+    initApp: function(data) {
         var token = localStorage.getItem('token');
     
         if(!token){
@@ -31,6 +31,22 @@ const SpotifyApi = {
     getAlbumTracks: function(album) {
         return axios.get(`https://api.spotify.com/v1/albums/${album}/tracks`)
             .then(response => response.data.items)
+    },
+
+    getUserPlaylist: function() {
+        return axios.get('https://api.spotify.com/v1/me/playlists')
+            .then(response => response.data)
+    },
+
+    getPlaylistTracks: function(href) {
+        
+        return axios.get(href)
+            .then(response => {
+                let data = response.data.items.map((item) => {
+                    return item.track;
+                })
+                return data;
+            })
     }
 
 }
