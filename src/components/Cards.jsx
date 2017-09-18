@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Album = ({album}) => {
     return (
-        <div className="col-sm-3 album-card">
+        <div className="col-lg-3 col-md-6 col-sm-12 album-card">
             <Link to={{
                 pathname: `/album/${album.id}`,
                 state: album

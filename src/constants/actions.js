@@ -14,7 +14,8 @@ const ACTIONS = {
     SET_PLAYED_PLAYLIST: Symbol('SET_PLAYED_PLAYLIST'),
     MENAGE_PLAYER: Symbol('MENAGE_PLAYER'),
     PLAY_NEXT: Symbol('PLAY_NEXT'),
-    PLAY_PREV: Symbol('PLAY_PREV')
+    PLAY_PREV: Symbol('PLAY_PREV'),
+    STOP_PLAY: Symbol('STOP_PLAY')
 };
 
 export default ACTIONS;

@@ -13,19 +13,19 @@ const Duration = ({time}) => {
 
 const PlaylistItem = (props) => {
     return (
-        <li className="list-group-item text-white playlist-item d-flex px-2 py-2 align-items-center">
-            <a href="#" onClick={props.menagePlayBtn} className="play-icon mr-3"><img src={require('../assets/play.png')} /></a>
-            <div className="d-flex justify-content-between w-100 pr-2 align-items-center">
-                <h4 className="d-inline mb-0">{props.track.name}</h4>
-                <Duration time={props.track.duration_ms}/>
-            </div>
+        <li className={'list-group-item text-white playlist-item d-flex px-2 py-2 align-items-center justify-content-between w-100 pr-2 ' + (props.track.preview_url == null ? 'disabled' : 'active') }>
+            <a href="#" onClick={props.menagePlayBtn} className="play-icon mr-md-3 d-flex align-items-center">
+                <img src={require('../assets/play.png')} className="d-none d-md-block"/>
+                <h4 className="d-inline mb-0 ml-2">{props.track.name}</h4>
+            </a>
+            <Duration time={props.track.duration_ms}/>
         </li>
     )
 }
 
 class Playlist extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.state = {
             tracks: []
         };
@@ -42,10 +42,20 @@ class Playlist extends React.Component {
 
     menagePlayBtn(e, track, index) {
         e.preventDefault();
+        let playlist = this.state.tracks.filter((track) => {
+            if(track.preview_url != null) 
+                return track;
+        });
+        let trackid = track.id;
+        var newIndex = playlist.findIndex(function (element) {
+            if (element.id == trackid) {
+                return element
+            }
+        });
         this.props.actions.setPlayedPlaylist({
-            playlist: this.state.tracks,
+            playlist: playlist,
             playedTrack: track,
-            playedIndex: index
+            playedIndex: newIndex
         })
     }
 
@@ -60,6 +70,9 @@ class Playlist extends React.Component {
             </div>
         )
     }
+}
+Playlist.contextTypes = {
+    store: React.PropTypes.object
 }
 
 

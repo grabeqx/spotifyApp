@@ -6,7 +6,7 @@ const LeftNav = () => {
     return (
         <div className="collapse navbar-collapse">
             <ul className="navbar-nav mr-auto">
-                <Link to="/search" className="nav-link">Search</Link>
+                
             </ul>
         </div>
     )
@@ -19,7 +19,7 @@ const RightNav = (props) => {
                 <div className="mr-sm-2">
                     <img className="avatar" src={props.user.image} />
                 </div>    
-                <div className="my-2 my-sm-0 user-name">
+                <div className="my-0 ml-2 user-name">
                     <h5>{props.user.display_name}</h5>
                 </div>
             </div>

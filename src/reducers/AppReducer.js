@@ -72,7 +72,6 @@ function playerReducer(state={}, action) {
     
     switch(action.type) {
         case ACTIONS.SET_PLAYED_PLAYLIST:
-        console.log(action.payload);
             return {
                 ...state,
                 played: true,
@@ -101,6 +100,12 @@ function playerReducer(state={}, action) {
                 playedIndex: action.payload.playedIndex
             }
 
+        case ACTIONS.STOP_PLAY:
+            return {
+                ...state,
+                played: action.payload,
+                playedIndex: -1
+            }
         default:
             return state;
 

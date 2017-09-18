@@ -138,6 +138,10 @@ body {
         background: transparent;
         border: none;
         border-bottom: 1px solid $borderColor;
+        &.disabled {
+                opacity: .5;
+                pointer-events: none;
+        }
         .play-icon img {
             max-width: 33px;
             opacity: 0;
@@ -150,8 +154,15 @@ body {
                 opacity: 1;
             }
         }
-        h4 {
-            font-weight: 200;
+        a {
+            h4 {
+                font-weight: 200;
+                color: #fff;
+                text-decoration: none;
+            }
+            &:hover {
+                text-decoration: none;
+            }
         }
         .duration {
             font-weight: 200;
@@ -177,5 +188,10 @@ body {
     }
     h3 {
         font-weight: 200;
+    }
+}
+@media screen and (max-width: 721px) {
+    .scroll-y {
+        perspective: 4px;
     }
 }

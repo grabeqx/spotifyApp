@@ -71,6 +71,12 @@ const actionCreators = {
                 playedTrack: track
             }
         }
+    },
+    stopPlay: function(played) {
+        return {
+            type: ACTIONS.STOP_PLAY,
+            payload: played
+        }
     }
     
 };
