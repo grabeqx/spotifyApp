@@ -47,6 +47,30 @@ const actionCreators = {
                 playedIndex: playlist.playedIndex
             }
         }
+    },
+    menagePlayer: function(played) {
+        return {
+            type: ACTIONS.MENAGE_PLAYER,
+            payload: played
+        }
+    },
+    playNext: function(index, track) {
+        return {
+            type: ACTIONS.PLAY_NEXT,
+            payload: {
+                playedIndex: index,
+                playedTrack: track
+            }
+        }
+    },
+    playPrev: function(index, track) {
+        return {
+            type: ACTIONS.PLAY_PREV,
+            payload: {
+                playedIndex: index,
+                playedTrack: track
+            }
+        }
     }
     
 };

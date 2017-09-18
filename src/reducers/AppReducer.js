@@ -72,12 +72,33 @@ function playerReducer(state={}, action) {
     
     switch(action.type) {
         case ACTIONS.SET_PLAYED_PLAYLIST:
+        console.log(action.payload);
             return {
                 ...state,
                 played: true,
                 playedTrack: action.payload.playedTrack,
                 playedIndex: action.payload.playedIndex,
                 playlist: [...action.payload.playlist]
+            }
+
+        case ACTIONS.MENAGE_PLAYER:
+            return {
+                ...state,
+                played: action.payload
+            }
+
+        case ACTIONS.PLAY_NEXT:
+            return {
+                ...state,
+                playedTrack: action.payload.playedTrack,
+                playedIndex: action.payload.playedIndex
+            }
+
+        case ACTIONS.PLAY_PREV:
+            return {
+                ...state,
+                playedTrack: action.payload.playedTrack,
+                playedIndex: action.payload.playedIndex
             }
 
         default:
